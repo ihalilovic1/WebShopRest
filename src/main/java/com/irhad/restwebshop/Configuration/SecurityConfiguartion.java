@@ -7,13 +7,36 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.authentication.AnonymousAuthenticationFilter;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.util.matcher.NegatedRequestMatcher;
+import org.springframework.security.web.util.matcher.OrRequestMatcher;
+import org.springframework.security.web.util.matcher.RequestMatcher;
 
 import javax.sql.DataSource;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguartion extends WebSecurityConfigurerAdapter {
+
+    private static final RequestMatcher PUBLIC_URLS = new OrRequestMatcher(
+            new ArrayList<RequestMatcher>(
+                Arrays.asList(
+                    new AntPathRequestMatcher("/resources/**"),
+                    new AntPathRequestMatcher("/Account/Login"),
+                    new AntPathRequestMatcher("/Account/Register")
+                )
+            )
+    );
+    private static final RequestMatcher PROTECTED_URLS = new NegatedRequestMatcher(PUBLIC_URLS);
+
 
     @Autowired
     private RestAuthenticationEntryPoint restAuthenticationEntryPoint;
@@ -22,7 +45,7 @@ public class SecurityConfiguartion extends WebSecurityConfigurerAdapter {
     private RestAuthenticationSuccessHandler authenticationSuccessHandler;
 
     @Autowired
-    private CustomAuthenticationProvider authProvider;
+    private TokenAuthenticationProvider authProvider;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth)
@@ -34,24 +57,32 @@ public class SecurityConfiguartion extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-            .csrf()
-            .disable()
-            .exceptionHandling()
-            .authenticationEntryPoint(restAuthenticationEntryPoint)
+            .sessionManagement()
+            .sessionCreationPolicy(STATELESS)
             .and()
+                .exceptionHandling()
+                // this entry point handles when you request a protected page and you are not yet
+                // authenticated
+                .defaultAuthenticationEntryPointFor(restAuthenticationEntryPoint, PROTECTED_URLS)
+                .and()
+                .authenticationProvider(authProvider)
+                .addFilterBefore(restAuthenticationFilter(), AnonymousAuthenticationFilter.class)
                 .authorizeRequests()
-                .antMatchers("/", "/Home").permitAll()
-                .antMatchers("/Account/Register").permitAll()
-                .anyRequest().authenticated()
+                .anyRequest()
+                .authenticated()
                 .and()
-                .formLogin()
-                .loginPage("/Account/Login")
-                .successHandler(authenticationSuccessHandler)
-                .failureHandler(new SimpleUrlAuthenticationFailureHandler())
-                .permitAll()
-                .and()
-                .logout()
-                .permitAll();
+                .csrf().disable()
+                .formLogin().disable()
+                .httpBasic().disable()
+                .logout().disable();
+    }
+
+    @Bean
+    TokenAuthenticationFilter restAuthenticationFilter() throws Exception {
+        final TokenAuthenticationFilter filter = new TokenAuthenticationFilter(PROTECTED_URLS);
+        filter.setAuthenticationManager(authenticationManager());
+        filter.setAuthenticationSuccessHandler(mySuccessHandler());
+        return filter;
     }
 
     @Bean
