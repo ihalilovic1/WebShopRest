@@ -50,4 +50,15 @@ public class AccountServiceImpl implements AccountService {
         }
     }
 
+    @Override
+    public Optional<User> findByUsername(String username) {
+        try {
+            return Optional.ofNullable(userRepository.findByUsername(username));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
 }

@@ -18,4 +18,6 @@ public interface AccountService {
 
     Optional<User> findByUsernamePassword(String username, String password);
 
+    Optional<User> findByUsername(String username);
+
 }

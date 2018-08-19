@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.authentication.AnonymousAuthenticationFilter;
@@ -42,9 +43,6 @@ public class SecurityConfiguartion extends WebSecurityConfigurerAdapter {
     private RestAuthenticationEntryPoint restAuthenticationEntryPoint;
 
     @Autowired
-    private RestAuthenticationSuccessHandler authenticationSuccessHandler;
-
-    @Autowired
     private TokenAuthenticationProvider authProvider;
 
     @Override
@@ -52,6 +50,11 @@ public class SecurityConfiguartion extends WebSecurityConfigurerAdapter {
             throws Exception {
 
         auth.authenticationProvider(authProvider);
+    }
+
+    @Override
+    public void configure(final WebSecurity web) {
+        web.ignoring().requestMatchers(PUBLIC_URLS);
     }
 
     @Override
