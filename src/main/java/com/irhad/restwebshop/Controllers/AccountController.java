@@ -9,10 +9,16 @@ import com.irhad.restwebshop.Services.UserAuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.lang.NonNull;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+
+import static java.util.Optional.ofNullable;
+import static org.apache.commons.lang3.StringUtils.removeStart;
+import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
 
 @RestController
@@ -35,13 +41,14 @@ public class AccountController {
 
     @RequestMapping(value = "/GetCurrentUser", method = RequestMethod.GET)
     @ResponseBody
-    public UserDTO getCurrentUser() {
-        User user = new User();
-        user.setFirstName("Ime korisnika");
-        user.setLastName("Prezime korisnika");
-        UserDTO userDTO = new UserDTO();
-        user.setFirstName(user.getFirstName());
-        user.setLastName(user.getLastName());
+    public UserDTO getCurrentUser(final HttpServletRequest request) {
+        final String param = ofNullable(request.getHeader(AUTHORIZATION))
+                .orElse(request.getParameter("t"));
+
+        final String token = removeStart(param, "Bearer").trim();
+
+        User user = authentication.findByToken(token).get();
+        UserDTO userDTO = new UserDTO(user);
         return userDTO;
     }
 

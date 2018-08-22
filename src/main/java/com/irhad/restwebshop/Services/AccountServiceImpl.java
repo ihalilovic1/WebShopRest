@@ -2,20 +2,23 @@ package com.irhad.restwebshop.Services;
 
 import com.irhad.restwebshop.Domain.DTOs.RegisterDTO;
 import com.irhad.restwebshop.Domain.DTOs.UserDTO;
+import com.irhad.restwebshop.Domain.Models.Role;
 import com.irhad.restwebshop.Domain.Models.User;
+import com.irhad.restwebshop.Repositories.RoleRepository;
 import com.irhad.restwebshop.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class AccountServiceImpl implements AccountService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private RoleRepository roleRepository;
 
     @Override
     public UserDTO addUser(UserDTO userDTO) {
@@ -27,12 +30,20 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public UserDTO addUser(User user) {
-        return new UserDTO(userRepository.save(user));
+        try {
+            return new UserDTO(userRepository.save(user));
+        } catch (Exception e) {
+            throw e;
+        }
+
     }
 
     @Override
     public UserDTO addUser(String firstName, String lastName, String username, String password, String email) {
-        return addUser(new User(UUID.randomUUID(), firstName, lastName, password, email, username, new Date(), null, true));
+        Role regularRole = roleRepository.findByName("regular");
+        User newUser = new User(UUID.randomUUID(), firstName, lastName, password, email, username, true);
+        newUser.getRoles().add(regularRole);
+        return addUser(newUser);
     }
 
     @Override

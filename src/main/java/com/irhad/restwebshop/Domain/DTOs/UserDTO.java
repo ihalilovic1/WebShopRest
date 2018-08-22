@@ -1,5 +1,6 @@
 package com.irhad.restwebshop.Domain.DTOs;
 
+import com.irhad.restwebshop.Domain.Models.Role;
 import com.irhad.restwebshop.Domain.Models.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Getter
@@ -22,13 +25,18 @@ public class UserDTO {
     private Date createdAt;
     private Date updatedAt;
     private Boolean enabled;
+    private Set<RoleDTO> roles;
 
     public User createUserObject() {
-        return new User(id, firstName, lastName, "", email, userName, createdAt, updatedAt, enabled);
+        Set<Role> roleSet = new HashSet<>();
+        for (RoleDTO roleDTO : roles) {
+            roleSet.add(new Role(roleDTO.getId(), roleDTO.getName(), roleDTO.getDescription()));
+        }
+        return new User(id, firstName, lastName, "", email, userName, createdAt, updatedAt, enabled, roleSet);
     }
 
     public UserDTO(User user) {
         this(user.getId(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getUsername(), user.getCreatedAt(),
-                user.getUpdatedAt(), user.getEnabled());
+                user.getUpdatedAt(), user.getEnabled(), RoleDTO.getRoleDTOSet(user.getRoles()));
     }
 }

@@ -3,12 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="115e243f-ee57-4dd8-b97f-a48d4b82a640" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Configuration/SecurityConfiguartion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Configuration/SecurityConfiguartion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/AccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/Models/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/Models/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/Models/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/AccountServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/UserAuthenticationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/UserAuthenticationServiceImpl.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -34,12 +33,12 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TokenAuthenticationService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/TokenAuthenticationService.java">
+    <leaf>
+      <file leaf-file-name="Shop.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/Models/Shop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="21" column="12" lean-forward="true" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+            <state relative-caret-position="154">
+              <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -47,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JWTTokenService.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/JWTTokenService.java">
+      <file leaf-file-name="ShopController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/ShopController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="58" column="51" selection-start-line="58" selection-start-column="51" selection-end-line="58" selection-end-column="51" />
+            <state relative-caret-position="195">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -59,11 +58,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TokenAuthenticationProvider.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Configuration/TokenAuthenticationProvider.java">
+      <file leaf-file-name="ShopServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/ShopServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="135">
+              <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/Models/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="42" column="28" lean-forward="true" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -90,6 +101,7 @@
       <find>restAuthenticationEntryPoint</find>
       <find>PUBLIC_URLS</find>
       <find>AuthenticationService</find>
+      <find>Calendar</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -108,28 +120,37 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/15b88fd4-944f-4761-a980-35aed98921fa/console.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/import.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/Models/Role.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Repositories/UserRepositoryImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/RESTErrorHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Configuration/RestAuthenticationEntryPoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/UserAuthenticationService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Configuration/TokenAuthenticationFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Configuration/CustomAuthenticationProvider.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/Models/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/RegisterDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/UserDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/LoginDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/AccountController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Configuration/SecurityConfiguartion.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/TokenService.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/TokenAuthenticationService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/AccountService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/AccountServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Repositories/UserRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Configuration/TokenAuthenticationProvider.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/UserAuthenticationServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/JWTTokenService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/TokenAuthenticationService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Configuration/TokenAuthenticationProvider.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/Models/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Repositories/RoleInterface.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Repositories/RoleRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/AccountServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/AccountController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/RoleDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/Models/Role.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/UserDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/Models/Shop.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Repositories/ShopRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/ShopService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/ShopDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/ShopController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/ShopServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -174,7 +195,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -233,6 +254,35 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="restwebshop" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rest-web-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rest-web-shop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="restwebshop" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="DTOs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rest-web-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rest-web-shop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="restwebshop" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rest-web-shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rest-web-shop" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="restwebshop" type="462c0819:PsiDirectoryNode" />
               <item name="Repositories" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -255,7 +305,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -307,7 +357,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="13" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.329927" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
@@ -318,15 +368,15 @@
       <window_info anchor="bottom" id="Spring" order="8" weight="0.329927" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info id="Designer" order="5" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.737819" visible="true" weight="0.24131274" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.73549885" visible="true" weight="0.24774775" />
       <window_info anchor="right" id="Bean Validation" order="5" weight="0.32947233" />
-      <window_info id="Web" order="2" sideWeight="0.26218098" side_tool="true" visible="true" weight="0.24131274" />
-      <window_info anchor="right" id="Database" order="4" />
+      <window_info id="Web" order="2" sideWeight="0.26450115" side_tool="true" visible="true" weight="0.24774775" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32947233" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3708029" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.3708029" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -343,113 +393,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/AccountController.java</url>
-          <line>38</line>
-          <properties />
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/AccountController.java</url>
-          <line>44</line>
-          <properties />
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Configuration/TokenAuthenticationFilter.java</url>
-          <line>31</line>
-          <properties />
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Configuration/TokenAuthenticationFilter.java</url>
-          <line>47</line>
-          <properties />
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/AccountController.java</url>
-          <line>29</line>
-          <properties />
-          <option name="timeStamp" value="48" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="64" />
+      <option name="time" value="85" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/Models/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Configuration/SecurityConfiguartion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="61" lean-forward="true" selection-start-line="12" selection-start-column="61" selection-end-line="12" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/AccountServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/AccountService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/AccountController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/RestWebShopApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="37" lean-forward="true" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="17" lean-forward="true" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/Models/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services.fxml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/FieldErrorListDTO.java" />
     <entry file="file://$PROJECT_DIR$/rest-web-shop.iml">
       <provider selected="true" editor-type-id="text-editor">
@@ -486,13 +433,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/Models/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -540,20 +480,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/RESTErrorHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/UserDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="30" column="125" selection-start-line="30" selection-start-column="125" selection-end-line="30" selection-end-column="125" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/RegisterDTO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="329">
@@ -586,16 +512,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/AccountController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
         </state>
       </provider>
     </entry>
@@ -606,13 +522,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/Models/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="318">
@@ -620,17 +529,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Repositories/UserRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/TokenService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+        <state relative-caret-position="60">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Configuration/SecurityConfiguartion.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/JWTTokenService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+        <state relative-caret-position="195">
+          <caret line="68" column="9" lean-forward="true" selection-start-line="68" selection-start-column="9" selection-end-line="68" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/RESTErrorHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
@@ -644,27 +560,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/AccountService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Configuration/SecurityConfiguartion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="20" column="49" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
+        <state relative-caret-position="315">
+          <caret line="45" column="23" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/AccountServiceImpl.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.0.8.RELEASE/spring-data-commons-2.0.8.RELEASE.jar!/org/springframework/data/annotation/LastModifiedDate.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="56" column="31" lean-forward="true" selection-start-line="56" selection-start-column="31" selection-end-line="56" selection-end-column="31" />
+        <state relative-caret-position="105">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Configuration/TokenAuthenticationFilter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Repositories/RoleInterface.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Repositories/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -678,37 +592,155 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/TokenService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/TokenAuthenticationService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        <state relative-caret-position="304">
+          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Configuration/TokenAuthenticationProvider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="180">
+          <caret line="30" column="28" lean-forward="true" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/TokenAuthenticationService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Configuration/TokenAuthenticationFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="21" column="12" lean-forward="true" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+        <state relative-caret-position="214">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/JWTTokenService.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar!/org/apache/commons/lang3/StringUtils.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="58" column="51" selection-start-line="58" selection-start-column="51" selection-end-line="58" selection-end-column="51" />
+        <state relative-caret-position="134">
+          <caret line="257" column="75" selection-start-line="257" selection-start-column="75" selection-end-line="257" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/RoleDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/Models/Role.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/Models/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="42" column="28" lean-forward="true" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/Models/Shop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Repositories/RoleRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Repositories/ShopRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/UserDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/ShopDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/ShopService.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/AccountController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/AccountService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/AccountServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="44" column="44" lean-forward="true" selection-start-line="44" selection-start-column="44" selection-end-line="44" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/ShopController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/ShopServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

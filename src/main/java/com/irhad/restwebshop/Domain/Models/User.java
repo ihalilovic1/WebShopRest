@@ -3,20 +3,19 @@ package com.irhad.restwebshop.Domain.Models;
 
 import jdk.nashorn.internal.objects.annotations.Constructor;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.UUID;
+import javax.persistence.*;
+import java.util.*;
 
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Getter @Setter @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 @Entity
 @Table(name = "users")
@@ -33,9 +32,55 @@ public class User implements UserDetails {
     private String password;
     private String email;
     private String username;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "created_at", nullable = false, updatable = false)
+    @CreationTimestamp
     private Date createdAt;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "updated_at", nullable = false)
+    @UpdateTimestamp
     private Date updatedAt;
     private Boolean enabled;
+
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "user_role",
+            joinColumns = { @JoinColumn(name = "user_id") },
+            inverseJoinColumns = { @JoinColumn(name = "role_id") }
+    )
+    Set<Role> roles = new HashSet<>();
+/*
+    @PrePersist
+    protected void onCreate() {
+        createdAt = new Date();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = new Date();
+    }
+*/
+
+    public User(UUID id, String firstName, String lastName, String password, String email, String username, Boolean enabled) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.email = email;
+        this.username = username;
+        this.enabled = enabled;
+    }
+
+    public User(UUID id, String firstName, String lastName, String password, String email, String username, Boolean enabled, Set<Role> roles) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.email = email;
+        this.username = username;
+        this.enabled = enabled;
+        this.roles = roles;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
