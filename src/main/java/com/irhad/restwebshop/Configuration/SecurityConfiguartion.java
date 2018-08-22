@@ -71,6 +71,7 @@ public class SecurityConfiguartion extends WebSecurityConfigurerAdapter {
                 .authenticationProvider(authProvider)
                 .addFilterBefore(restAuthenticationFilter(), AnonymousAuthenticationFilter.class)
                 .authorizeRequests()
+                .antMatchers("/Shop/UserShops").hasRole("admin")
                 .anyRequest()
                 .authenticated()
                 .and()

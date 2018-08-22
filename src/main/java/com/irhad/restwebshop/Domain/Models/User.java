@@ -49,17 +49,6 @@ public class User implements UserDetails {
             inverseJoinColumns = { @JoinColumn(name = "role_id") }
     )
     Set<Role> roles = new HashSet<>();
-/*
-    @PrePersist
-    protected void onCreate() {
-        createdAt = new Date();
-    }
-
-    @PreUpdate
-    protected void onUpdate() {
-        updatedAt = new Date();
-    }
-*/
 
     public User(UUID id, String firstName, String lastName, String password, String email, String username, Boolean enabled) {
         this.id = id;
@@ -84,7 +73,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return new ArrayList<>();
+        return getRoles();
     }
 
     @Override

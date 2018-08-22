@@ -6,6 +6,8 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.util.Currency;
 import java.util.Date;
 import java.util.UUID;
 
@@ -15,8 +17,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "shops")
-public class Shop {
+@Table(name = "shop_items")
+public class ShopItem {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
@@ -26,10 +28,9 @@ public class Shop {
     private UUID id;
     private String name;
     private String description;
-    private String adress;
     @JoinColumn(name = "id", unique = true)
-    @OneToOne(cascade = CascadeType.ALL)
-    private User owner;
+    @OneToMany(cascade = CascadeType.ALL)
+    private Shop shop;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, updatable = false)
     @CreationTimestamp
@@ -39,5 +40,5 @@ public class Shop {
     @UpdateTimestamp
     private Date updatedAt;
     private Boolean enabled;
-
+    private BigDecimal price;
 }
