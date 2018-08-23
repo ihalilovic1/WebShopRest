@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -41,13 +42,8 @@ public class AccountController {
 
     @RequestMapping(value = "/GetCurrentUser", method = RequestMethod.GET)
     @ResponseBody
-    public UserDTO getCurrentUser(final HttpServletRequest request) {
-        final String param = ofNullable(request.getHeader(AUTHORIZATION))
-                .orElse(request.getParameter("t"));
-
-        final String token = removeStart(param, "Bearer").trim();
-
-        User user = authentication.findByToken(token).get();
+    public UserDTO getCurrentUser() {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         UserDTO userDTO = new UserDTO(user);
         return userDTO;
     }

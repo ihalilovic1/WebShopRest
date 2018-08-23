@@ -7,6 +7,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Getter
@@ -27,7 +29,7 @@ public class Shop {
     private String name;
     private String description;
     private String adress;
-    @JoinColumn(name = "id", unique = true)
+    //@JoinColumn(name = "id", unique = true)
     @OneToOne(cascade = CascadeType.ALL)
     private User owner;
     @Temporal(TemporalType.TIMESTAMP)
@@ -40,4 +42,6 @@ public class Shop {
     private Date updatedAt;
     private Boolean enabled;
 
+    @OneToMany(mappedBy = "shop")
+    private Set<ShopItem> items = new HashSet<>();
 }

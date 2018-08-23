@@ -45,7 +45,7 @@ public class ShopController {
 
     @RequestMapping(value = "/UserShops", method = RequestMethod.GET)
     @ResponseBody
-    public Set<ShopDTO> shopsByUser(UUID id) {
+    public Set<ShopDTO> shopsByUser(@RequestParam UUID id) {
 
         User user = accountService.findById(id).orElseThrow(() -> new IllegalArgumentException("User not found"));
 

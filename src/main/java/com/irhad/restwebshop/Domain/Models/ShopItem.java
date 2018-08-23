@@ -28,8 +28,7 @@ public class ShopItem {
     private UUID id;
     private String name;
     private String description;
-    @JoinColumn(name = "id", unique = true)
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Shop shop;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, updatable = false)

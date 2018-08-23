@@ -42,7 +42,7 @@ public class User implements UserDetails {
     private Date updatedAt;
     private Boolean enabled;
 
-    @ManyToMany(cascade = { CascadeType.ALL })
+    @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_role",
             joinColumns = { @JoinColumn(name = "user_id") },
