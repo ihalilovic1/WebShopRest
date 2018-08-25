@@ -4,6 +4,7 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.hateoas.Identifiable;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -18,7 +19,7 @@ import java.util.UUID;
 @Builder
 @Entity
 @Table(name = "shops")
-public class Shop {
+public class Shop implements Identifiable<UUID> {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(

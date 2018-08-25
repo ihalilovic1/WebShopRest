@@ -56,9 +56,11 @@ public class AccountController {
                 .orElseThrow(() -> new RuntimeException("invalid username and/or password"));
     }
 
+    /*
     @RequestMapping(value = "/Logout", method = RequestMethod.GET)
     boolean logout(@AuthenticationPrincipal final User user) {
         authentication.logout(user);
         return true;
     }
+    */
 }

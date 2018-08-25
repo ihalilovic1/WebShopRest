@@ -32,7 +32,11 @@ public class SecurityConfiguartion extends WebSecurityConfigurerAdapter {
                 Arrays.asList(
                     new AntPathRequestMatcher("/resources/**"),
                     new AntPathRequestMatcher("/Account/Login"),
-                    new AntPathRequestMatcher("/Account/Register")
+                    new AntPathRequestMatcher("/Account/Register"),
+                    new AntPathRequestMatcher("/swagger-ui.html"),
+                    new AntPathRequestMatcher("/webjars/**"),
+                    new AntPathRequestMatcher("/v2/api-docs"),
+                    new AntPathRequestMatcher("/swagger-resources/**")
                 )
             )
     );

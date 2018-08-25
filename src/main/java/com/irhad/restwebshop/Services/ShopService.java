@@ -8,12 +8,16 @@ import java.util.Set;
 import java.util.UUID;
 
 public interface ShopService {
-    ShopDTO createShop(Shop shop);
+    Shop createShop(Shop shop);
 
-    ShopDTO createShop(String name, String description, String adress, User owner);
+    Shop createShop(String name, String description, String adress, User owner);
 
-    Set<ShopDTO> findByOwner(User user);
+    Set<Shop> findByOwner(User user);
 
-    ShopDTO findById(UUID uuid);
+    Shop findById(UUID uuid);
+
+    Shop updateShop(Shop shop);
+
+    Boolean deleteShop(Shop shop);
 
 }

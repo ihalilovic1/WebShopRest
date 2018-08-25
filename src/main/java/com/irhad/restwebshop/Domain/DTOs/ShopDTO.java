@@ -1,10 +1,13 @@
 package com.irhad.restwebshop.Domain.DTOs;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.irhad.restwebshop.Domain.Models.Shop;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.rest.core.annotation.RestResource;
+import org.springframework.hateoas.ResourceSupport;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -15,8 +18,9 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ShopDTO {
-    private UUID id;
+public class ShopDTO extends ResourceSupport {
+    @JsonProperty("id")
+    private UUID shopId;
     private String name;
     private String description;
     private String adress;
