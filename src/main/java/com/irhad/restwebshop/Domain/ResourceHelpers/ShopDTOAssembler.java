@@ -21,7 +21,7 @@ public class ShopDTOAssembler extends ResourceAssembler<Shop, ShopDTO> {
         ShopDTO resource = new ShopDTO(shop);
         final LinkBuilder selfLink = ControllerLinkBuilder.linkTo(ShopController.class);
         resource.add(selfLink.slash(shop).withSelfRel());
-        resource.add(selfLink.slash(UPDATE_REL).slash(shop).withRel(UPDATE_REL));
+        resource.add(selfLink.slash(UPDATE_REL).withRel(UPDATE_REL));
         resource.add(selfLink.slash(DELETE_REL).slash(shop).withRel(DELETE_REL));
         return resource;
     }

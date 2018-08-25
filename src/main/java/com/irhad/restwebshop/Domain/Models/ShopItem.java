@@ -40,4 +40,5 @@ public class ShopItem {
     private Date updatedAt;
     private Boolean enabled;
     private BigDecimal price;
+    private Integer count;
 }
