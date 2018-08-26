@@ -64,17 +64,8 @@ public class ShopController {
     @ResponseBody
     public ShopDTO getShop(@PathVariable UUID id, final HttpServletResponse response) {
         try {
-            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
             ShopDTO shop = shopDTOAssembler.toResource(shopService.findById(id));
-
-            if(user.getId().equals(shop.getOwner().getId())) {
-                return shop;
-            }
-            else {
-                response.setStatus(HttpServletResponse.SC_FORBIDDEN);
-                return null;
-            }
+            return shop;
         } catch (IllegalArgumentException ex) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             return null;
@@ -86,7 +77,7 @@ public class ShopController {
     }
 
     @ApiOperation(value = "Delete", response = ShopDTO.class)
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "Delete/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public ShopDTO deleteShop(@PathVariable UUID id, final HttpServletResponse response) {
         try {

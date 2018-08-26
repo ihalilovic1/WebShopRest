@@ -4,12 +4,11 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.Currency;
-import java.util.Date;
-import java.util.UUID;
+import java.util.*;
 
 @Getter
 @Setter
@@ -41,4 +40,14 @@ public class ShopItem {
     private Boolean enabled;
     private BigDecimal price;
     private Integer count;
+    @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "shop_item_category",
+            joinColumns = { @JoinColumn(name = "shop_item_id") },
+            inverseJoinColumns = { @JoinColumn(name = "category_id") }
+    )
+    Set<ItemCategory> categories = new HashSet<>();
+
+    @OneToMany(mappedBy = "shopItem")
+    private Set<FileResource> photos = new HashSet<>();
 }

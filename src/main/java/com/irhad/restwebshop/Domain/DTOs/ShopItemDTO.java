@@ -10,7 +10,9 @@ import org.springframework.hateoas.ResourceSupport;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -27,9 +29,13 @@ public class ShopItemDTO extends ResourceSupport {
     private Date updatedAt;
     private Boolean enabled;
     private ShopDTO shop;
+    private Set<CategoryDTO> categories;
+    private Set<String> photos;
 
     public ShopItemDTO(ShopItem shopItem) {
         this(shopItem.getId(), shopItem.getName(), shopItem.getDescription(), shopItem.getPrice(), shopItem.getCount(),
-                shopItem.getCreatedAt(), shopItem.getUpdatedAt(), shopItem.getEnabled(), new ShopDTO(shopItem.getShop()));
+                shopItem.getCreatedAt(), shopItem.getUpdatedAt(), shopItem.getEnabled(),
+                new ShopDTO(shopItem.getShop()), CategoryDTO.getCategoryDTOSet(shopItem.getCategories()),
+                shopItem.getPhotos().stream().map(p -> p.getPath()).collect(Collectors.toSet()));
     }
 }
