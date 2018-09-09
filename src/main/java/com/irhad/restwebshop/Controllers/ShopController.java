@@ -39,7 +39,7 @@ public class ShopController {
     ShopDTOAssembler shopDTOAssembler;
 
     @ApiOperation(value = "Create new shop", response = ShopDTO.class)
-    @RequestMapping(value = "/Create", method = RequestMethod.POST)
+    @RequestMapping(value = "/", method = RequestMethod.POST)
     @ResponseBody
     public ShopDTO createShop(@RequestBody @Valid ShopDTO model, final HttpServletRequest request) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -77,7 +77,7 @@ public class ShopController {
     }
 
     @ApiOperation(value = "Delete", response = ShopDTO.class)
-    @RequestMapping(value = "Delete/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public ShopDTO deleteShop(@PathVariable UUID id, final HttpServletResponse response) {
         try {
@@ -101,9 +101,9 @@ public class ShopController {
     }
 
     @ApiOperation(value = "Update shop", response = ShopDTO.class)
-    @RequestMapping(value = "/Update", method = RequestMethod.POST)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseBody
-    public ShopDTO updateShop(@RequestBody @Valid ShopDTO model, final HttpServletResponse response) {
+    public ShopDTO updateShop(@PathVariable UUID id, @RequestBody @Valid ShopDTO model, final HttpServletResponse response) {
         try {
             User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 

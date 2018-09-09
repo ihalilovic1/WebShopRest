@@ -71,9 +71,9 @@ public class ShopItemController {
     }
 
     @ApiOperation(value = "Update existing shop items", response = ShopItemDTO.class)
-    @RequestMapping(value = "/Update", method = RequestMethod.POST)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseBody
-    public ShopItemDTO updateShopItem(@RequestBody @Valid ShopItemDTO model,
+    public ShopItemDTO updateShopItem(@PathVariable UUID id, @RequestBody @Valid ShopItemDTO model,
                                       final HttpServletResponse response) {
         try {
             User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -102,7 +102,7 @@ public class ShopItemController {
     }
 
     @ApiOperation(value = "Delete shop items")
-    @RequestMapping(value = "/Delete/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public ShopItemDTO deleteShopItem(@PathVariable UUID id,
                                       final HttpServletResponse response) {
