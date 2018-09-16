@@ -1,5 +1,6 @@
 package com.irhad.restwebshop.Controllers;
 
+import com.irhad.restwebshop.Domain.DTOs.CreateShopDTO;
 import com.irhad.restwebshop.Domain.DTOs.ShopDTO;
 import com.irhad.restwebshop.Domain.Models.Shop;
 import com.irhad.restwebshop.Domain.Models.User;
@@ -27,36 +28,44 @@ import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
 @RestController
 @RequestMapping("/Shop")
-@Api(value="shops", description="Shops...")
+@Api(value="shops", description="Shop resource")
 public class ShopController {
     @Autowired
     ShopService shopService;
-    @Autowired
-    UserAuthenticationService authentication;
     @Autowired
     AccountService accountService;
     @Autowired
     ShopDTOAssembler shopDTOAssembler;
 
+    @ApiOperation(value = "Get all shops", response = Set.class)
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public Set<ShopDTO> getAll() {
+
+        return ShopDTO.getShopDTOSet(shopService.findAll());
+    }
+
     @ApiOperation(value = "Create new shop", response = ShopDTO.class)
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(value = "", method = RequestMethod.POST)
     @ResponseBody
-    public ShopDTO createShop(@RequestBody @Valid ShopDTO model, final HttpServletRequest request) {
+    public ShopDTO createShop(@RequestBody @Valid CreateShopDTO model) throws Exception {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        ShopDTO shopDTO = new ShopDTO(shopService.createShop(model.getName(), model.getDescription(), model.getAdress(),
-                user));
+        try {
+            return new ShopDTO(shopService.createShop(
+                    Shop.builder()
+                            .name(model.getName())
+                            .description(model.getDescription())
+                            .adress(model.getAdress())
+                            .owner(user)
+                            .enabled(true)
+                            .build()
+            ));
 
-        return shopDTO;
-    }
-    @ApiOperation(value = "Get shops for the logged in user", response = Set.class)
-    @RequestMapping(value = "/UserShops", method = RequestMethod.GET)
-    @ResponseBody
-    public Set<ShopDTO> getShopsByUser(@RequestParam UUID id) {
+        } catch (Exception e) {
+            throw new Exception("error occured", e);
+        }
 
-        User user = accountService.findById(id).orElseThrow(() -> new IllegalArgumentException("User not found"));
 
-        return ShopDTO.getShopDTOSet(shopService.findByOwner(user));
     }
 
     @ApiOperation(value = "Get shop details", response = ShopDTO.class)
@@ -76,10 +85,20 @@ public class ShopController {
 
     }
 
+    @ApiOperation(value = "Get shops for the logged in user", response = Set.class)
+    @RequestMapping(value = "/UserShops", method = RequestMethod.GET)
+    @ResponseBody
+    public Set<ShopDTO> getShopsByUser(@RequestParam UUID id) {
+
+        User user = accountService.findById(id).orElseThrow(() -> new IllegalArgumentException("User not found"));
+
+        return ShopDTO.getShopDTOSet(shopService.findByOwner(user));
+    }
+
     @ApiOperation(value = "Delete", response = ShopDTO.class)
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public ShopDTO deleteShop(@PathVariable UUID id, final HttpServletResponse response) {
+    public void deleteShop(@PathVariable UUID id, final HttpServletResponse response) {
         try {
             User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -97,19 +116,19 @@ public class ShopController {
         } catch (Exception ex) {
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
-        return null;
+
     }
 
     @ApiOperation(value = "Update shop", response = ShopDTO.class)
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseBody
-    public ShopDTO updateShop(@PathVariable UUID id, @RequestBody @Valid ShopDTO model, final HttpServletResponse response) {
+    public ShopDTO updateShop(@PathVariable UUID id, @RequestBody @Valid CreateShopDTO model, final HttpServletResponse response) {
         try {
             User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-            Shop shop = shopService.findById(model.getShopId());
+            Shop shop = shopService.findById(id);
 
-            if(shop.getOwner().getId() != user.getId()){
+            if(!shop.getOwner().getId().equals(user.getId())){
                 response.setStatus(HttpServletResponse.SC_FORBIDDEN);
                 return null;
             }

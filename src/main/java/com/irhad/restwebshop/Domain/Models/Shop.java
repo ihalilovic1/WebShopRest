@@ -31,7 +31,8 @@ public class Shop implements Identifiable<UUID> {
     private String description;
     private String adress;
     //@JoinColumn(name = "id", unique = true)
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "owner_id")
     private User owner;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, updatable = false)

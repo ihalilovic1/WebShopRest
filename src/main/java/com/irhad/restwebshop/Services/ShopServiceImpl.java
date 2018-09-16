@@ -1,5 +1,7 @@
 package com.irhad.restwebshop.Services;
 
+import com.google.common.collect.Sets;
+import com.irhad.restwebshop.Domain.DTOs.ShopDTO;
 import com.irhad.restwebshop.Domain.Models.Shop;
 import com.irhad.restwebshop.Domain.Models.User;
 import com.irhad.restwebshop.Repositories.ShopRepository;
@@ -34,6 +36,11 @@ public class ShopServiceImpl implements ShopService {
     @Override
     public Set<Shop> findByOwner(User user) {
         return shopRepository.findAllByOwner(user);
+    }
+
+    @Override
+    public Set<Shop> findAll() {
+        return Sets.newHashSet(shopRepository.findAll());
     }
 
     @Override

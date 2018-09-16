@@ -20,7 +20,7 @@ import java.util.Set;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/Item")
+@RequestMapping("/Shop/{shopId}/Item")
 @Api(value="items", description="Shop items...")
 public class ShopItemController {
     @Autowired
@@ -28,14 +28,12 @@ public class ShopItemController {
     @Autowired
     ShopItemService shopItemService;
     @Autowired
-    UserAuthenticationService authentication;
-    @Autowired
     AccountService accountService;
     @Autowired
     FileResourceService fileResourceService;
 
     @ApiOperation(value = "Add items to shop", response = ShopItemDTO.class)
-    @RequestMapping(value = "/Create/{shopId}", method = RequestMethod.POST)
+    @RequestMapping(value = "", method = RequestMethod.POST)
     @ResponseBody
     public ShopItemDTO createShopItem(@PathVariable UUID shopId, @RequestBody @Valid CreateItemDTO model,
                                       final HttpServletResponse response) {

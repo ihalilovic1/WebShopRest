@@ -27,16 +27,18 @@ public class UserDTO {
     private Boolean enabled;
     private Set<RoleDTO> roles;
 
+    public UserDTO(User user) {
+        this(user.getId(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getUsername(), user.getCreatedAt(),
+                user.getUpdatedAt(), user.getEnabled(), RoleDTO.getRoleDTOSet(user.getRoles()));
+    }
+
     public User createUserObject() {
         Set<Role> roleSet = new HashSet<>();
         for (RoleDTO roleDTO : roles) {
             roleSet.add(new Role(roleDTO.getId(), roleDTO.getName(), roleDTO.getDescription()));
         }
-        return new User(id, firstName, lastName, "", email, userName, createdAt, updatedAt, enabled, roleSet);
-    }
-
-    public UserDTO(User user) {
-        this(user.getId(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getUsername(), user.getCreatedAt(),
-                user.getUpdatedAt(), user.getEnabled(), RoleDTO.getRoleDTOSet(user.getRoles()));
+        return User.builder().createdAt(createdAt).email(email).enabled(enabled)
+                .firstName(firstName).lastName(lastName).id(id).username(userName).updatedAt(updatedAt)
+                .build();
     }
 }

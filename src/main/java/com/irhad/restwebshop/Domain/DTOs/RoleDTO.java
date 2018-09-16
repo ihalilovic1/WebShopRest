@@ -26,6 +26,8 @@ public class RoleDTO {
 
     public static Set<RoleDTO> getRoleDTOSet(Set<Role> roleSet) {
         Set<RoleDTO> roleDTOS = new HashSet<>();
+        if(roleSet == null)
+            return  roleDTOS;
         for (Role role : roleSet) {
             roleDTOS.add(new RoleDTO(role));
         }

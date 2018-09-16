@@ -14,6 +14,8 @@ public interface ShopService {
 
     Set<Shop> findByOwner(User user);
 
+    Set<Shop> findAll();
+
     Shop findById(UUID uuid);
 
     Shop updateShop(Shop shop);

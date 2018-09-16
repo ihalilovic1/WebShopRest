@@ -2,6 +2,7 @@ package com.irhad.restwebshop.Domain.DTOs;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.irhad.restwebshop.Domain.Models.Shop;
+import com.irhad.restwebshop.Domain.Models.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,13 +25,13 @@ public class ShopDTO extends ResourceSupport {
     private String name;
     private String description;
     private String adress;
-    private UserDTO owner;
+    private UserBasicDTO owner;
     private Date createdAt;
     private Date updatedAt;
     private Boolean enabled;
 
     public ShopDTO(Shop shop){
-        this(shop.getId(), shop.getName(), shop.getDescription(), shop.getAdress(), new UserDTO(shop.getOwner()),
+        this(shop.getId(), shop.getName(), shop.getDescription(), shop.getAdress(), new UserBasicDTO(shop.getOwner()),
                 shop.getCreatedAt(), shop.getUpdatedAt(), shop.getEnabled());
     }
 
@@ -40,5 +41,11 @@ public class ShopDTO extends ResourceSupport {
             shopDTOS.add(new ShopDTO(shop));
         }
         return shopDTOS;
+    }
+
+    public Shop createShopObject() {
+        return Shop.builder().enabled(enabled).owner(User.builder().id(owner.getId()).build())
+                .adress(adress).id(shopId).name(name).createdAt(createdAt).description(description)
+                .updatedAt(updatedAt).build();
     }
 }
