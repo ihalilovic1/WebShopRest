@@ -52,4 +52,14 @@ public class FileResourceServiceImpl implements FileResourceService {
     public FileResource createFile(String path, ShopItem shopItem) {
         return fileResourceRepository.save(FileResource.builder().path(path).shopItem(shopItem).build());
     }
+
+    @Override
+    public FileResource findById(UUID id) {
+        return fileResourceRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("File not found"));
+    }
+
+    @Override
+    public FileResource updateFile(FileResource fileResource) {
+        return fileResourceRepository.save(fileResource);
+    }
 }

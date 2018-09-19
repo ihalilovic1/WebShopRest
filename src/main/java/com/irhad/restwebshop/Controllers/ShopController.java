@@ -2,6 +2,7 @@ package com.irhad.restwebshop.Controllers;
 
 import com.irhad.restwebshop.Domain.DTOs.CreateShopDTO;
 import com.irhad.restwebshop.Domain.DTOs.ShopDTO;
+import com.irhad.restwebshop.Domain.DTOs.ShopFilterDTO;
 import com.irhad.restwebshop.Domain.Models.Shop;
 import com.irhad.restwebshop.Domain.Models.User;
 import com.irhad.restwebshop.Domain.ResourceHelpers.ShopDTOAssembler;
@@ -39,9 +40,9 @@ public class ShopController {
 
     @ApiOperation(value = "Get all shops", response = Set.class)
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public Set<ShopDTO> getAll() {
+    public Set<ShopDTO> getAll(@RequestBody @Valid ShopFilterDTO model) {
 
-        return ShopDTO.getShopDTOSet(shopService.findAll());
+        return ShopDTO.getShopDTOSet(shopService.findAll(model));
     }
 
     @ApiOperation(value = "Create new shop", response = ShopDTO.class)

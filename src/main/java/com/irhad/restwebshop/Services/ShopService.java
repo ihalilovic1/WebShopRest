@@ -1,6 +1,7 @@
 package com.irhad.restwebshop.Services;
 
 import com.irhad.restwebshop.Domain.DTOs.ShopDTO;
+import com.irhad.restwebshop.Domain.DTOs.ShopFilterDTO;
 import com.irhad.restwebshop.Domain.Models.Shop;
 import com.irhad.restwebshop.Domain.Models.User;
 
@@ -14,7 +15,7 @@ public interface ShopService {
 
     Set<Shop> findByOwner(User user);
 
-    Set<Shop> findAll();
+    Set<Shop> findAll(ShopFilterDTO filters);
 
     Shop findById(UUID uuid);
 

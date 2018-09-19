@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 import java.util.Set;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -20,5 +21,5 @@ public class CreateItemDTO {
     private Integer count;
     private Boolean enabled;
     private Set<Long> categories;
-    private Set<MultipartFile> photos;
+    private Set<UUID> photos;
 }

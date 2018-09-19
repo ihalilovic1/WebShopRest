@@ -27,7 +27,7 @@ public class ShopItem {
     private UUID id;
     private String name;
     private String description;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     private Shop shop;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, updatable = false)
@@ -40,7 +40,7 @@ public class ShopItem {
     private Boolean enabled;
     private BigDecimal price;
     private Integer count;
-    @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "shop_item_category",
             joinColumns = { @JoinColumn(name = "shop_item_id") },
@@ -48,6 +48,6 @@ public class ShopItem {
     )
     Set<ItemCategory> categories = new HashSet<>();
 
-    @OneToMany(mappedBy = "shopItem")
+    @OneToMany(mappedBy = "shopItem", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Set<FileResource> photos = new HashSet<>();
 }

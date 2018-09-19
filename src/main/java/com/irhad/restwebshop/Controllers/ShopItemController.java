@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +19,8 @@ import javax.validation.Valid;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/Shop/{shopId}/Item")
@@ -32,7 +35,7 @@ public class ShopItemController {
     @Autowired
     FileResourceService fileResourceService;
 
-    @ApiOperation(value = "Add items to shop", response = ShopItemDTO.class)
+    @ApiOperation(value = "Add item to shop", response = ShopItemDTO.class)
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ResponseBody
     public ShopItemDTO createShopItem(@PathVariable UUID shopId, @RequestBody @Valid CreateItemDTO model,
@@ -47,17 +50,50 @@ public class ShopItemController {
                 return null;
             }
             Set<FileResource> photos = new HashSet<>();
-            model.getPhotos().stream().forEach(file -> {
-                String path = fileResourceService.uploadFile(null);
-                photos.add(FileResource.builder().path(path).build());
-            });
+
+            Set<ItemCategory> categories = model.getCategories().stream()
+                    .map(c -> ItemCategory.builder().id(c).build()).collect(Collectors.toSet());
 
             ShopItem shopItem = shopItemService.createItem(model.getName(), model.getDescription(), shop,
-                    model.getPrice(), model.getCount(), model.getEnabled(), null, photos);
+                    model.getPrice(), model.getCount(), model.getEnabled(), categories, photos);
 
+            for (UUID p : model.getPhotos()) {
+                FileResource f = fileResourceService.findById(p);
 
+                if (f != null) {
+                    f.setShopItem(shopItem);
+                    fileResourceService.updateFile(f);
+                }
+
+            }
 
             return new ShopItemDTO(shopItem);
+        } catch (IllegalArgumentException ex) {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            return null;
+        } catch (Exception ex) {
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            return null;
+        }
+
+    }
+
+    @ApiOperation(value = "Upload new file", response = ShopItemDTO.class)
+    @RequestMapping(value = "/UploadFile", method = RequestMethod.POST)
+    @ResponseBody
+    public FileResource uploadFile(@PathVariable UUID shopId, @RequestParam("file") MultipartFile file,
+                                      final HttpServletResponse response) {
+        try {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+            Shop shop = shopService.findById(shopId);
+
+            if(!user.getId().equals(shop.getOwner().getId())) {
+                response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+                return null;
+            }
+           String path = fileResourceService.uploadFile(file.getBytes());
+            return fileResourceService.createFile(path, null);
         } catch (IllegalArgumentException ex) {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return null;

@@ -30,7 +30,6 @@ public class Shop implements Identifiable<UUID> {
     private String name;
     private String description;
     private String adress;
-    //@JoinColumn(name = "id", unique = true)
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "owner_id")
     private User owner;

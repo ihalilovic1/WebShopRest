@@ -27,7 +27,7 @@ public class Order {
             strategy = "org.hibernate.id.UUIDGenerator"
     )
     private UUID id;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     private User userId;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, updatable = false)

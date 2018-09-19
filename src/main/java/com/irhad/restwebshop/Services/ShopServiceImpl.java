@@ -2,10 +2,12 @@ package com.irhad.restwebshop.Services;
 
 import com.google.common.collect.Sets;
 import com.irhad.restwebshop.Domain.DTOs.ShopDTO;
+import com.irhad.restwebshop.Domain.DTOs.ShopFilterDTO;
 import com.irhad.restwebshop.Domain.Models.Shop;
 import com.irhad.restwebshop.Domain.Models.User;
 import com.irhad.restwebshop.Repositories.ShopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -39,8 +41,8 @@ public class ShopServiceImpl implements ShopService {
     }
 
     @Override
-    public Set<Shop> findAll() {
-        return Sets.newHashSet(shopRepository.findAll());
+    public Set<Shop> findAll(ShopFilterDTO filters) {
+        return Sets.newHashSet(shopRepository.findAll(new PageRequest(filters.getPage(), filters.getPageSize())));
     }
 
     @Override
