@@ -39,6 +39,7 @@ public class Order {
     private Date updatedAt;
     private Boolean shipped;
     private BigDecimal price;
+    private Boolean confirmed;
 
     @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
     @JoinTable(

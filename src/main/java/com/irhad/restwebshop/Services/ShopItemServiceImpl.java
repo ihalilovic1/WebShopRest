@@ -1,5 +1,7 @@
 package com.irhad.restwebshop.Services;
 
+import com.google.common.collect.Sets;
+import com.irhad.restwebshop.Domain.DTOs.ItemFilterDTO;
 import com.irhad.restwebshop.Domain.Models.FileResource;
 import com.irhad.restwebshop.Domain.Models.ItemCategory;
 import com.irhad.restwebshop.Domain.Models.Shop;
@@ -38,6 +40,19 @@ public class ShopItemServiceImpl implements ShopItemService {
     @Override
     public ShopItem findById(UUID uuid) {
         return shopItemRepository.findById(uuid).orElseThrow(() -> new IllegalArgumentException("Shop item not found"));
+    }
+
+    @Override
+    public Set<ShopItem> findAll(final ItemFilterDTO filter) {
+        if(filter == null)
+            throw new IllegalArgumentException("Filters not valid");
+        Set<ShopItem> set = Sets.newHashSet(shopItemRepository.findAll());
+        set.stream().filter(i -> (i.getName().contains(filter.getName())
+                || i.getDescription().contains(filter.getName()))
+                && !filter.getMaxPrice().equals(0)? true : filter.getMaxPrice().compareTo(i.getPrice()) >= 0
+        );
+
+        return set;
     }
 
     @Override

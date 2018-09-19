@@ -1,5 +1,6 @@
 package com.irhad.restwebshop.Services;
 
+import com.irhad.restwebshop.Domain.DTOs.ItemFilterDTO;
 import com.irhad.restwebshop.Domain.Models.FileResource;
 import com.irhad.restwebshop.Domain.Models.ItemCategory;
 import com.irhad.restwebshop.Domain.Models.Shop;
@@ -18,6 +19,8 @@ public interface ShopItemService {
     Set<ShopItem> findByShop(Shop shop);
 
     ShopItem findById(UUID uuid);
+
+    Set<ShopItem> findAll(ItemFilterDTO filter);
 
     ShopItem updateShopItem(ShopItem shopItem);
 

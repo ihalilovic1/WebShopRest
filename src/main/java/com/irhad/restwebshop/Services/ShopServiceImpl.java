@@ -42,7 +42,9 @@ public class ShopServiceImpl implements ShopService {
 
     @Override
     public Set<Shop> findAll(ShopFilterDTO filters) {
-        return Sets.newHashSet(shopRepository.findAll(new PageRequest(filters.getPage(), filters.getPageSize())));
+        int page = filters == null ? 0 : filters.getPage();
+        int pageSize = filters == null ? 10 : filters.getPageSize();
+        return Sets.newHashSet(shopRepository.findAll(PageRequest.of(page, pageSize)));
     }
 
     @Override

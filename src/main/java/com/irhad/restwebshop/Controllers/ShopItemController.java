@@ -1,6 +1,7 @@
 package com.irhad.restwebshop.Controllers;
 
 import com.irhad.restwebshop.Domain.DTOs.CreateItemDTO;
+import com.irhad.restwebshop.Domain.DTOs.ItemFilterDTO;
 import com.irhad.restwebshop.Domain.DTOs.ShopDTO;
 import com.irhad.restwebshop.Domain.DTOs.ShopItemDTO;
 import com.irhad.restwebshop.Domain.Models.*;
@@ -23,7 +24,7 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/Shop/{shopId}/Item")
+@RequestMapping("")
 @Api(value="items", description="Shop items...")
 public class ShopItemController {
     @Autowired
@@ -35,8 +36,31 @@ public class ShopItemController {
     @Autowired
     FileResourceService fileResourceService;
 
+
+
+    @ApiOperation(value = "Filter all shop items", response = Set.class)
+    @RequestMapping(value = "/ShopItem", method = RequestMethod.GET)
+    @ResponseBody
+    public Set<ShopItemDTO> getAll(@PathVariable UUID shopId, ItemFilterDTO model,
+                                      final HttpServletResponse response) {
+        try {
+            Set<ShopItem> shopItems = shopItemService.findAll(model == null? new ItemFilterDTO() : model);
+
+
+
+            return ShopItemDTO.getShopItemDTOSet(shopItems);
+        } catch (IllegalArgumentException ex) {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            return null;
+        } catch (Exception ex) {
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            return null;
+        }
+
+    }
+
     @ApiOperation(value = "Add item to shop", response = ShopItemDTO.class)
-    @RequestMapping(value = "", method = RequestMethod.POST)
+    @RequestMapping(value = "/Shop/{shopId}/Item", method = RequestMethod.POST)
     @ResponseBody
     public ShopItemDTO createShopItem(@PathVariable UUID shopId, @RequestBody @Valid CreateItemDTO model,
                                       final HttpServletResponse response) {
@@ -79,7 +103,7 @@ public class ShopItemController {
     }
 
     @ApiOperation(value = "Upload new file", response = ShopItemDTO.class)
-    @RequestMapping(value = "/UploadFile", method = RequestMethod.POST)
+    @RequestMapping(value = "/Shop/{shopId}/Item/UploadFile", method = RequestMethod.POST)
     @ResponseBody
     public FileResource uploadFile(@PathVariable UUID shopId, @RequestParam("file") MultipartFile file,
                                       final HttpServletResponse response) {
@@ -105,7 +129,7 @@ public class ShopItemController {
     }
 
     @ApiOperation(value = "Update existing shop items", response = ShopItemDTO.class)
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/Shop/{shopId}/Item/{id}", method = RequestMethod.PUT)
     @ResponseBody
     public ShopItemDTO updateShopItem(@PathVariable UUID id, @RequestBody @Valid ShopItemDTO model,
                                       final HttpServletResponse response) {
@@ -136,7 +160,7 @@ public class ShopItemController {
     }
 
     @ApiOperation(value = "Delete shop items")
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/Shop/{shopId}/Item/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public ShopItemDTO deleteShopItem(@PathVariable UUID id,
                                       final HttpServletResponse response) {
@@ -161,7 +185,7 @@ public class ShopItemController {
     }
 
     @ApiOperation(value = "Get shop item details", response = ShopItemDTO.class)
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/Shop/{shopId}/Item/{id}", method = RequestMethod.GET)
     @ResponseBody
     public ShopItemDTO getShopItem(@PathVariable UUID id,
                                       final HttpServletResponse response) {

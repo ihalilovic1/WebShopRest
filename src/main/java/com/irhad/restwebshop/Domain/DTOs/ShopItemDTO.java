@@ -10,6 +10,7 @@ import org.springframework.hateoas.ResourceSupport;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -37,5 +38,13 @@ public class ShopItemDTO extends ResourceSupport {
                 shopItem.getCreatedAt(), shopItem.getUpdatedAt(), shopItem.getEnabled(),
                 new ShopDTO(shopItem.getShop()), CategoryDTO.getCategoryDTOSet(shopItem.getCategories()),
                 shopItem.getPhotos().stream().map(p -> p.getPath()).collect(Collectors.toSet()));
+    }
+
+    public static Set<ShopItemDTO> getShopItemDTOSet(Set<ShopItem> shopItems) {
+        Set<ShopItemDTO> itemDTOS = new HashSet<>();
+        for (ShopItem item : shopItems) {
+            itemDTOS.add(new ShopItemDTO(item));
+        }
+        return itemDTOS;
     }
 }

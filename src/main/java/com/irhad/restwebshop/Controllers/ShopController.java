@@ -40,7 +40,7 @@ public class ShopController {
 
     @ApiOperation(value = "Get all shops", response = Set.class)
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public Set<ShopDTO> getAll(@RequestBody @Valid ShopFilterDTO model) {
+    public Set<ShopDTO> getAll(ShopFilterDTO model) {
 
         return ShopDTO.getShopDTOSet(shopService.findAll(model));
     }

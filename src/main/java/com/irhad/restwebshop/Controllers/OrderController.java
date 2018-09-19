@@ -42,4 +42,33 @@ public class OrderController {
 
         return new OrderDTO(orderService.createOrder(order));
     }
+
+    @ApiOperation(value = "Create new order", response = OrderDTO.class)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public OrderDTO getOrder(@PathVariable UUID id) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        Order order = orderService.findOrder(id);
+
+        if(!order.getUserId().getId().equals(user.getId()))
+            throw new IllegalArgumentException("Not order owner");
+
+        return new OrderDTO(order);
+    }
+
+    @ApiOperation(value = "Confirm order", response = OrderDTO.class)
+    @RequestMapping(value = "/{id}/Confirm", method = RequestMethod.PUT)
+    @ResponseBody
+    public void confirmOrder(@PathVariable UUID id) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        Order order = orderService.findOrder(id);
+
+        if(!order.getUserId().getId().equals(user.getId()))
+            throw new IllegalArgumentException("Not order owner");
+        ;
+
+        orderService.confirmOrder(id);
+    }
 }

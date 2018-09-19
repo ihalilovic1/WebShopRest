@@ -5,6 +5,6 @@ import lombok.Setter;
 
 @Getter @Setter
 public class ShopFilterDTO {
-    private int pageSize;
-    private int page;
+    private int pageSize = 20;
+    private int page = 0;
 }
