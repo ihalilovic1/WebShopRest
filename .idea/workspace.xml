@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="115e243f-ee57-4dd8-b97f-a48d4b82a640" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/ShopItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/ShopItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/OrderItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/OrderItemDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/ShopDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/ShopDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/Models/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/Models/OrderItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/OrderItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/OrderItemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/OrderItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/OrderItemServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/ShopItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/ShopItemDTO.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -61,47 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrderController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/OrderController.java">
+      <file leaf-file-name="ShopItemDTO.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/ShopItemDTO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="86" column="23" lean-forward="true" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrderItemDTO.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/OrderItemDTO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrderItem.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/Models/OrderItem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="27" column="14" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrderServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/OrderServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="31" column="80" selection-start-line="31" selection-start-column="80" selection-end-line="31" selection-end-column="80" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CreateOrderItemDTO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/CreateOrderItemDTO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state relative-caret-position="162">
+              <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -172,7 +129,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/ShopItemService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/ItemFilterDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/ShopItemServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/ShopItemDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Repositories/OrderRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/OrderService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/ShopController.java" />
@@ -186,6 +142,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/OrderServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/Models/OrderItem.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/OrderItemDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/ShopItemDTO.java" />
       </list>
     </option>
   </component>
@@ -292,15 +249,6 @@
               <item name="Domain" type="462c0819:PsiDirectoryNode" />
               <item name="DTOs" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="rest-web-shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rest-web-shop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="restwebshop" type="462c0819:PsiDirectoryNode" />
-              <item name="Services" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -377,14 +325,14 @@
       <window_info anchor="bottom" id="Spring" order="8" weight="0.329927" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.329927" />
       <window_info id="Designer" order="5" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.79520696" visible="true" weight="0.24774775" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.79520696" visible="true" weight="0.24774775" />
       <window_info anchor="right" id="Bean Validation" order="5" weight="0.32947233" />
       <window_info id="Web" order="2" sideWeight="0.20479302" side_tool="true" weight="0.24774775" />
       <window_info anchor="right" id="Database" order="4" weight="0.32947233" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.4993565" visible="true" weight="0.36934307" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4993565" visible="true" weight="0.36934307" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24967825" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -414,12 +362,6 @@
           <line>86</line>
           <properties />
           <option name="timeStamp" value="164" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/OrderItemDTO.java</url>
-          <line>28</line>
-          <properties />
-          <option name="timeStamp" value="165" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="166" />
@@ -670,13 +612,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/ShopItemDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="43" column="28" lean-forward="true" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Repositories/OrderRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -762,24 +697,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/ShopDTO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/OrderController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+        <state relative-caret-position="245">
+          <caret line="86" selection-start-line="86" selection-end-line="86" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/CreateOrderItemDTO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/OrderItemDTO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/OrderServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="31" column="80" selection-start-line="31" selection-start-column="80" selection-end-line="31" selection-end-column="80" />
+        <state relative-caret-position="285">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
         </state>
       </provider>
     </entry>
@@ -790,17 +718,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Controllers/OrderController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Services/OrderServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="86" column="23" lean-forward="true" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="23" />
+        <state relative-caret-position="150">
+          <caret line="31" column="80" selection-start-line="31" selection-start-column="80" selection-end-line="31" selection-end-column="80" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/OrderItemDTO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/CreateOrderItemDTO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+        <state relative-caret-position="90">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/ShopDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irhad/restwebshop/Domain/DTOs/ShopItemDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
         </state>
       </provider>
     </entry>

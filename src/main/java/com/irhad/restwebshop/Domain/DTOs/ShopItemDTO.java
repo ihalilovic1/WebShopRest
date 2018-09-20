@@ -33,6 +33,7 @@ public class ShopItemDTO extends ResourceSupport {
     private Set<CategoryDTO> categories;
     private Set<String> photos;
 
+    
     public ShopItemDTO(ShopItem shopItem) {
         this(shopItem.getId(), shopItem.getName(), shopItem.getDescription(), shopItem.getPrice(), shopItem.getCount(),
                 shopItem.getCreatedAt(), shopItem.getUpdatedAt(), shopItem.getEnabled(),
@@ -45,6 +46,7 @@ public class ShopItemDTO extends ResourceSupport {
         for (ShopItem item : shopItems) {
             itemDTOS.add(new ShopItemDTO(item));
         }
+
         return itemDTOS;
     }
 }
