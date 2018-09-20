@@ -41,7 +41,7 @@ public class ShopItemController {
     @ApiOperation(value = "Filter all shop items", response = Set.class)
     @RequestMapping(value = "/ShopItem", method = RequestMethod.GET)
     @ResponseBody
-    public Set<ShopItemDTO> getAll(@PathVariable UUID shopId, ItemFilterDTO model,
+    public Set<ShopItemDTO> getAll(ItemFilterDTO model,
                                       final HttpServletResponse response) {
         try {
             Set<ShopItem> shopItems = shopItemService.findAll(model == null? new ItemFilterDTO() : model);

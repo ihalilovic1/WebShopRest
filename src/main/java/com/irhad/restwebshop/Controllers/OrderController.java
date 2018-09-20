@@ -3,9 +3,7 @@ package com.irhad.restwebshop.Controllers;
 import com.irhad.restwebshop.Domain.DTOs.CreateOrderItemDTO;
 import com.irhad.restwebshop.Domain.DTOs.OrderDTO;
 import com.irhad.restwebshop.Domain.DTOs.OrderItemDTO;
-import com.irhad.restwebshop.Domain.Models.Order;
-import com.irhad.restwebshop.Domain.Models.Shop;
-import com.irhad.restwebshop.Domain.Models.User;
+import com.irhad.restwebshop.Domain.Models.*;
 import com.irhad.restwebshop.Services.OrderItemService;
 import com.irhad.restwebshop.Services.OrderService;
 import io.swagger.annotations.Api;
@@ -70,5 +68,22 @@ public class OrderController {
         ;
 
         orderService.confirmOrder(id);
+    }
+
+    @ApiOperation(value = "Add order item", response = OrderDTO.class)
+    @RequestMapping(value = "/{id}/Item", method = RequestMethod.PUT)
+    @ResponseBody
+    public OrderItemDTO addOrderItem(@PathVariable UUID id, @RequestBody CreateOrderItemDTO item) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        Order order = orderService.findOrder(id);
+        if(!order.getUserId().getId().equals(user.getId()))
+            throw new IllegalArgumentException("Not order owner");
+
+        OrderItem orderItem = OrderItem.builder().shopItem(ShopItem.builder().id(item.getShopitem()).build())
+                .amount(item.getAmount()).orderId(order).build();
+
+
+        return new OrderItemDTO(orderItemService.createOrderItem(orderItem));
     }
 }

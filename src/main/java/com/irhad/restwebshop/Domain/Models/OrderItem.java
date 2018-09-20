@@ -25,9 +25,9 @@ public class OrderItem {
             strategy = "org.hibernate.id.UUIDGenerator"
     )
     private UUID id;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private ShopItem shopItem;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Order orderId;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_at", nullable = false, updatable = false)

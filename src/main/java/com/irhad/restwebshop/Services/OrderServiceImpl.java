@@ -28,7 +28,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order findOrder(UUID id) {
-        return null;
+        return orderRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Order not found"));
     }
 
     @Override
